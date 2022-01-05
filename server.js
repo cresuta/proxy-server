@@ -14,10 +14,12 @@ app.use(function(req, res, next) {
 });
 
 
-app.get('/build-a-rig/ethereum/earnings/*', (req, res) => {
-  let apiCall = req.url.slice('/build-a-rig/ethereum/earnings/'.length)
-  let apiReq = `https://www.coincalculators.io/api?name=ethereum&hashrate=288000000&power=910&powercost=0.13&difficultytime=6${apiCall}`
+app.get('/api/mining/*', (req, res) => {
+  let apiCall = req.url.slice('/api/mining/'.length)
+  console.log("this is apiCall", apiCall)
+  let apiReq = `https://www.coincalculators.io/api${apiCall}`
   request.get(apiReq, (err, _, body) => {
+    console.log("this is the body of our response", body)
     res.send(body)
   });
 });
