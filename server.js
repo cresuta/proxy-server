@@ -20,6 +20,7 @@ app.get('/ethereum/mining/*', (req, res) => {
   let apiReq = `https://www.coincalculators.io/api${apiCall}`
   request.get(apiReq, (err, _, body) => {
     console.log("this is the body of our response", body)
+    console.log('this is an error', err)
     res.send(body)
   });
 });
