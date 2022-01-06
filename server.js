@@ -21,6 +21,7 @@ app.get('/ethereum/mining/*', (req, res) => {
   request.get(apiReq, (err, _, body) => {
     console.log("this is the body of our response", body)
     console.log('this is an error', err)
+    console.log('this is the status code', _)
     res.send(body)
   });
 });
